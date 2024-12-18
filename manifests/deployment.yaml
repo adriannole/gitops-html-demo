@@ -1,37 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: html-site
+  name: argo-sample-app
+  namespace: default  # Añadir el namespace aquí
+  labels:
+    app: argo-sample-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: html-site
+      app: argo-sample-app
   template:
     metadata:
       labels:
-        app: html-site
+        app: argo-sample-app
     spec:
       containers:
-      - name: html-container
+      - name: nginx
         image: nginx:latest
+        ports:
+        - containerPort: 80
         volumeMounts:
         - name: html-volume
           mountPath: /usr/share/nginx/html
       volumes:
       - name: html-volume
-        hostPath:
-          path: /app/html-site
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: html-service
-spec:
-  selector:
-    app: html-site
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+        configMap:
+          name: html-config
