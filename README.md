@@ -25,3 +25,5 @@ Este proyecto tiene como objetivo configurar una **aplicación HTML simple** en 
 ## **🚀 CAPTURAS**
 
 ![Captura de pantalla de la aplicación](/images/PAGINA.png)
+
+![Captura de pantalla del Deploy](/images/PAGINA2.png)
