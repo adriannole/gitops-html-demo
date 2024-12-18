@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argo-sample-app
-  namespace: default  # Añadir el namespace aquí
+  name: html-site
+  namespace: default  # Namespace donde se desplegará el recurso
   labels:
-    app: argo-sample-app
+    app: html-site
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: argo-sample-app
+      app: html-site
   template:
     metadata:
       labels:
-        app: argo-sample-app
+        app: html-site
     spec:
       containers:
       - name: nginx
