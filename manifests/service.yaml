@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: argo-sample-app-service
+  namespace: default  # Añadir el namespace aquí
+spec:
+  type: LoadBalancer
+  selector:
+    app: argo-sample-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
